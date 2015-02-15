@@ -1,14 +1,30 @@
 /**
- * Created by Eric on 2/1/2015.
+ * Solution to ProjectEuler Problem 2.
+ *
+ * @author Eric
  */
 public class ProjectEulerTwo {
+  /**
+   * Computes the sum of even numbers in the Fibonacci sequence below 4,000,000.
+   * @param args Ignored.
+   */
   public static void main(String[] args) {
-    double firstNum = 1;
-    double secondNum = 1;
-    double nextNum = 0;
-    double sum = 0;
+    int sum = computeSumOfEvenFibonacciTerms(4000000);
+    System.out.println(sum);
+  }
 
-    while(firstNum < 4000000) {
+  /**
+   * Computes and returns the sum of even numbers in the Fibonacci sequence.
+   * @param upperLimit the upper limit for the summation.
+   * @return the sum of the even numbers in the Fibonacci sequence below the upper limit.
+   */
+  public static int computeSumOfEvenFibonacciTerms(int upperLimit) {
+    int firstNum = 1;
+    int secondNum = 1;
+    int nextNum = 0;
+    int sum = 0;
+
+    while (firstNum < upperLimit) {
       if (firstNum % 2 == 0) {
         sum += firstNum;
       }
@@ -16,6 +32,6 @@ public class ProjectEulerTwo {
       firstNum = secondNum;
       secondNum = nextNum;
     }
-    System.out.println(sum);
+    return sum;
   }
 }
